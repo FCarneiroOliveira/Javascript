@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header><h1>Verificador de Idade</h1></header>
+    <section>
+        <div>
+            <label for="idaden">Ano de Nascimento:</label>
+                <input type="number" id="idaden" name="idade"> <br>
+                <label for="sexo">Sexo:</label>  
+                <input type="radio" name="sexo" id="m"> <label for="masc">Masculino</label>
+                <input type="radio" name="sexo" id="f"> <label for="fem">Feminino</label> <br>
+                <button type="submit" onclick="verificar()">Verificar</button>
+        </div>
+        <div id="res">
+        </div>
+    </section>
+    <footer>
+        <p>&copy; Felipe Carneiro</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

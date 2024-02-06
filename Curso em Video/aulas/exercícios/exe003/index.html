@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header><h1>Vamos Contar</h1></header>
+    <section>
+        <div>
+            <label for="ini">Início:</label> <input onclick="limpar()" id="inicio" type="number"> <br>
+            <label for="fim">Fim:</label> <input  id="fim" type="number"> <br>
+            <label for="Passo">Passo:</label> <input  id="passo" type="number"> <br>
+            <input type="button" value="Contar" onclick="contar()">
+        </div>
+        <div id="res"></div>
+    </section>
+    <footer>&copy;Felipe Carneiro</footer>
+</body>
+</html>
