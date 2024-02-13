@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+    <style>
+        body{
+            background-color: rgba(0, 0, 255, 0.523);
+        }
+        #jogo {
+            max-width: 306px;
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+        }
+        #jogo > h1{
+            text-align: center;
+            padding: 10px;
+        }
+        .linha {
+            display: table-row;
+        }
+        .botao {
+            width: 100px;
+            height: 100px;
+            font-size: 2em;
+            border: none; 
+            cursor: pointer;
+            background-color: transparent;
+            display: table-cell; 
+            text-align: center; 
+            vertical-align: middle;
+        }
+        .botao:hover {
+            background-color:rgba(255, 0, 0, 0.683);
+        }
+        .linha:not(:last-child) .botao {
+            border-bottom: 4px solid green; 
+        }
+        .botao:not(:last-child) {
+            border-right: 4px solid green ; 
+        }
+    </style>
+</head>
+<body>
+    <div id="jogo">
+        <h1>Jogo da Velha</h1>
+        <div class="linha" onclick="jogar(event)">
+            <button class="botao" data-index="0"></button>
+            <button class="botao" data-index="1"></button>
+            <button class="botao" data-index="2"></button> 
+        </div>
+        <div class="linha" onclick="jogar(event)">
+            <button class="botao" data-index="3"></button>
+            <button class="botao" data-index="4"></button>
+            <button class="botao" data-index="5"></button> 
+        </div>
+        <div class="linha" onclick="jogar(event)">
+            <button class="botao" data-index="6"></button>
+            <button class="botao" data-index="7"></button>
+            <button class="botao" data-index="8"></button>
+        </div>
+    </div>
+   
+    <script>
+        let jogador = 'X';
+        let botoes= document.querySelectorAll('.botao');
+        let jogof = false;
+
+        function jogar(event) {
+            if(jogof) return;
+
+            const botao = event.target;
+            const indice = parseInt(botao.dataset.index);
+
+            if (botao.textContent === '' && !jogof){
+                botao.textContent = jogador;
+                if (temVencedor()){
+                    alert(jogador + ' Ganhou!!!')
+                    jogof = true;
+                    reiniciarJogo()
+                } else if(empate()){
+                    alert('Empate!');
+                    jogof = true;
+                    reiniciarJogo()
+                }else{
+                    jogador = jogador === 'X' ? 'O' :'X';
+                }
+            }
+        }
+
+        function temVencedor(){
+            const condVitoria = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]];
+            
+            return condVitoria.some((condition) => {
+                const [a,b,c] = condition;
+                return botoes[a].textContent !== '' && botoes[a].textContent === botoes[b].textContent && botoes[a].textContent === botoes[c].textContent;
+            });
+        }
+        function empate() {
+            return Array.from(botoes).every((botao) => botao.textContent !== '');
+        }
+        function reiniciarJogo() {
+            botoes.forEach(botao => {
+                botao.textContent = '';
+            });
+            jogador = 'X';
+            jogof = false;
+        }
+    </script>
+</body>
+</html>
