@@ -1,0 +1,32 @@
+[
+    {
+        "nome": "Miguel",
+        "email": "miguel@gmail.com",
+        "salario": 2000,
+        "estado": "MG",
+        "empresa": "Google",
+        "idade": 30,
+        "sexo": "M",
+        "cpf": "123.654.951-85"
+    },
+    {
+        "nome": "Luiz",
+        "email": "luiz@gmail.com",
+        "salario": 2500,
+        "estado": "DF",
+        "empresa": "Google",
+        "idade": 28,
+        "sexo": "M",
+        "cpf": "785.454.951-23"
+    },
+    {
+        "nome": "Felipe",
+        "email": "felipe@gmail.com",
+        "salario": 5000,
+        "estado": "RR",
+        "empresa": "Facebook",
+        "idade": 22,
+        "sexo": "M",
+        "cpf": "311.654.951-89"
+    }
+]
